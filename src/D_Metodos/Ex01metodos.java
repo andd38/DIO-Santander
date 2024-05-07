@@ -4,7 +4,7 @@ public class Ex01metodos {
 
     private boolean ligada;
     private int canal;
-    private  int volume;
+    private int volume;
 
     public Ex01metodos(boolean ligada, int canal, int volume) {
         this.ligada = ligada;
@@ -16,7 +16,7 @@ public class Ex01metodos {
     }
 
     public boolean isLigada() {
-        return ligada;
+        return this.ligada == false;
     }
 
     public void setLigada(boolean ligada) {
@@ -39,34 +39,44 @@ public class Ex01metodos {
         this.volume = volume;
     }
 
-    public String aumentarVolume(){
+    public void aumentarVolume(){
         if(this.ligada == false){
-            return "nao é possivel aumentar o volume";
+            System.out.println( "nao é possivel aumentar o volume");
+        } else {
+            System.out.println( "voce aumentou o volume para : "+ volume++);
         }
-        return "voce aumentou o volume para : "+ volume++;
+
     }
-    public String diminuirVolume(){
+    public void diminuirVolume(){
        if(this.ligada == false){
-           return "voce nao pode dimuir o volume";
+           System.out.println( "voce nao pode dimuir o volume");
+       } else{
+           System.out.println( "voce diminuiu o volume para" + this.volume--);
        }
-       return "voce diminuiu o volume para" + this.volume--;
+
     }
 
-    public boolean Ligar(){
-        return true;
+    public void Ligar(){
+        setLigada(true);
+        System.out.println("voce ligou a sua televisao");
     }
-    public boolean desligar(){
-        return false;
+    public void desligar(){
+       setLigada(false);
+        System.out.println("voce desligou a sua televisao");
+
     }
 
     public int mudarCanal(int numCanal){
         return numCanal;
     }
-    public String  mudarCanal(){
-        if(this.ligada == true){
-            return "voce nao pode mudar de canal";
+    public void  mudarCanal(){
+        if(this.ligada == false){
+            System.out.println( "voce nao pode mudar de canal");
         }
-        return "voce mudou de canal para "+ canal++;
+        else {
+            System.out.println("voce mudou de canal para "+ canal++);
+        }
+
     }
 
     @Override
